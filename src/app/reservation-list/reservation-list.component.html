@@ -1,0 +1,39 @@
+<div>
+    <h2>Reservation List</h2>
+    <ul class="list-group" *ngIf="reservations.length; else noReservation">
+        <li class="list-group-item" *ngFor="let reservation of reservations">
+            <div class="row">
+                <div class="col d-flex flex-column align-items-start">
+                    <span class="form-label">Guest Name</span>
+                    <span> {{reservation.guestName}} </span>
+                </div>
+                <div class="col d-flex flex-column align-items-start">
+                    <span class="form-label">Guest Email</span>
+                    <span> {{reservation.guestEmail}} </span>
+                </div>
+                <div class="col d-flex flex-column align-items-start">
+                    <span class="form-label">Room Number</span>
+                    <span> {{reservation.roomNumber}} </span>
+                </div>
+                <div class="col d-flex flex-column align-items-start">
+                    <span class="form-label">Check In</span>
+                    <span> {{reservation.checkInDate}} </span>
+                </div>
+                <div class="col d-flex flex-column align-items-start">
+                    <span class="form-label">Check Out</span>
+                    <span> {{reservation.checkOutDate}} </span>
+                </div>
+                <div class="col d-flex flex-column align-items-start">
+                    <button type="button" class="btn btn-danger" (click)="deleteReservation(reservation.id)">Delete</button>
+                    <button type="button" class="btn btn-primary w-100" [routerLink]="['/edit', reservation.id]">Edit</button>
+                </div>
+            </div>
+
+            
+        </li>
+    </ul>
+
+    <ng-template #noReservation>
+        <li class="list-group-item"> No Reservation Available </li>
+    </ng-template>
+</div>
