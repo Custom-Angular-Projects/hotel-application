@@ -1,5 +1,7 @@
+<app-home></app-home>
+
 <div>
-    <h2>Reservation List</h2>
+    <h2 class="form-label"> <i class='bx bx-chevron-left'></i> Reservation List</h2>
     <ul class="list-group" *ngIf="reservations.length; else noReservation">
         <li class="list-group-item" *ngFor="let reservation of reservations">
             <div class="row">
@@ -23,9 +25,9 @@
                     <span class="form-label">Check Out</span>
                     <span> {{reservation.checkOutDate}} </span>
                 </div>
-                <div class="col d-flex flex-column align-items-start">
+                <div class="col d-flex justify-content-center align-items-center gap-3">
                     <button type="button" class="btn btn-danger" (click)="deleteReservation(reservation.id)">Delete</button>
-                    <button type="button" class="btn btn-primary w-100" [routerLink]="['/edit', reservation.id]">Edit</button>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/edit', reservation.id]">Edit</button>
                 </div>
             </div>
 
